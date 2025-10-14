@@ -44,5 +44,5 @@ steps to run
 2)python -m venv venv
 then activate it
 3)pip install -r requirements.txt
-4) Launch Jupyter Notebook 
+4) Launch Jupyter Notebook command:
 jupyter notebook
