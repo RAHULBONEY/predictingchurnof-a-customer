@@ -1,6 +1,4 @@
-Here is a complete, professional README.md file for your project.
 
-Telco Customer Churn Prediction Dashboard
 An end-to-end machine learning project that predicts customer churn for a telecom company. This repository contains the full workflow, from data analysis and model tuning to a live, interactive Streamlit dashboard that provides predictions, financial impact analysis, and model explanations.
 
 🚀 View the Live Deployed App Here
