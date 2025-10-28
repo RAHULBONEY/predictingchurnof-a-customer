@@ -1,48 +1,100 @@
+Here is a complete, professional README.md file for your project.
 
+Telco Customer Churn Prediction Dashboard
+An end-to-end machine learning project that predicts customer churn for a telecom company. This repository contains the full workflow, from data analysis and model tuning to a live, interactive Streamlit dashboard that provides predictions, financial impact analysis, and model explanations.
 
-https://github.com/user-attachments/assets/c078c376-9673-4822-bdd8-735af466a943
+🚀 View the Live Deployed App Here
+https://predictingchurnof-a-customer-sp4kxnzy7cxjycrrdjxhnq.streamlit.app/
 
+📋 Project Overview
+The goal of this project is to build a tool that not only predicts if a customer will churn but also why. By identifying high-risk customers, a business can proactively offer targeted incentives, reducing revenue loss.
 
-1. Project Objective
-​The goal of this project is to build an end-to-end machine learning model that accurately predicts customer churn for a fictional telecom company. By identifying customers who are at a high risk of leaving, the business can proactively offer targeted incentives to improve retention and reduce revenue loss.
-​This repository covers the entire data science workflow, from initial data exploration to deploying a predictive model within an interactive web application.
+This app goes beyond a simple prediction by answering key business questions:
 
-​2. The Dataset
-​This project uses the "Telco Customer Churn" dataset, which is publicly available on Kaggle. The dataset contains various customer attributes such as:
-​Demographic Info: Gender, age range, partner and dependent status.
-​Account Information: Tenure, contract type, payment method, monthly and total charges.
-​Services Signed Up For: Phone, internet, online security, tech support, etc.
+Which customers are at high risk of leaving?
 
-​3. Model Training & Key Findings
-​The core of this project is a machine learning model trained to distinguish between customers who will churn and those who will not.
-​How the Model Was Trained:
-​Exploratory Data Analysis (EDA): The data was first visualized to identify patterns and relationships between customer attributes and churn.
-​Data Preprocessing: Categorical features were converted into a numerical format using one-hot encoding, and numerical features were scaled.
-​Model Selection: A Logistic Regression model was first built as a baseline. An XGBoost Classifier was then trained, which provided superior performance in identifying at-risk customers.
-​Key Predictive Factors (Insights):
-​The trained XGBoost model revealed the most significant factors driving customer churn:
-​Contract Type: Customers on a Month-to-Month contract are overwhelmingly more likely to churn than those on one or two-year contracts.
-​Tenure: New customers (low tenure) have a much higher churn rate.
-​Internet Service: Customers with Fiber optic internet service show a higher tendency to churn, suggesting potential issues with that specific service (e.g., reliability, price).
+Why is the model flagging them as a risk? (Model Explainability)
 
-​4. Project Components
-​This repository contains two main components:
-​notebooks/Churn Analysis.ipynb: A Jupyter Notebook containing the complete step-by-step Python code for data analysis, preprocessing, model training, and evaluation.
-​churn_app.html: A user-friendly, interactive web application that uses the model's logic to make live churn predictions based on user input.
-​5. How to Run This Project
-​There are two ways to explore this project: through the simple web app or by running the full analysis notebook.
-​Option A: Use the Interactive Web App (Easiest)
-​Download the churn_app.html file.
-​Double-click the file to open it in any web browser.
-​Enter customer details into the form and click "Predict Churn" to see the result.
-​Option B: Run the Full Jupyter Notebook
-​To dive deep into the code and analysis, run the Jupyter Notebook on your local machine.
+How much money could this model save us? (Financial Impact)
 
+Which model is best for this business problem? (Model Comparison)
 
-steps to run 
-1)Git Clone
-2)python -m venv venv
-then activate it
-3)pip install -r requirements.txt
-4) Launch Jupyter Notebook command:
-jupyter notebook
+✨ Key Features
+This application is a 4-page Streamlit dashboard:
+
+🚀 Churn Prediction:
+
+Enter a customer's details (tenure, contract, etc.) to get a real-time churn prediction.
+
+See the churn probability (e.g., "85% High Risk").
+
+Model Explainability (SHAP): Includes a "Why?" section with a SHAP force plot, showing exactly which features (like "Contract: Month-to-month") pushed the model toward its decision.
+
+💸 Financial Impact Simulation:
+
+The most powerful feature of this project.
+
+An interactive calculator that simulates the Return on Investment (ROI) of using this model.
+
+Allows a manager to set business assumptions (e.g., "Cost of retention offer," "Average revenue per customer") and see the net profit/loss from a retention campaign.
+
+Proves the business value of the high-recall tuned model.
+
+📊 Model Performance:
+
+Compares the baseline Logistic Regression model against the final, tuned XGBoost model.
+
+Uses Classification Reports, Confusion Matrices, and ROC/AUC Curves to justify why the tuned model was chosen.
+
+Key Insight: This page demonstrates the classic trade-off: we intentionally sacrificed overall accuracy (80% vs 73%) to dramatically increase Recall (57% vs 80%), making the model far better at its real job—finding at-risk customers.
+
+📈 Data Exploration:
+
+An interactive dashboard (using tabs) that shows the key insights from the original data analysis.
+
+Includes visualizations for Contract, Tenure, and InternetService to show their strong correlation with churn.
+
+🛠️ Tech Stack
+Python 3.10+
+
+Streamlit: For the interactive web dashboard.
+
+Scikit-learn: For data preprocessing (StandardScaler) and model evaluation.
+
+XGBoost: For the final, tuned classification model.
+
+SHAP: For model explainability ("Why?" plots).
+
+Pandas: For data manipulation and analysis.
+
+Seaborn & Matplotlib: For data visualization.
+
+Joblib: For saving and loading the trained model assets.
+
+📁 Project Structure
+├── .streamlit/
+│   └── config.toml        # Streamlit theme file
+├── data/
+│   └── ...-Churn.csv      # Raw dataset
+├── notebooks/
+│   └── churn analysis.ipynb # Full data analysis and model tuning
+├── app.py                 # The main Streamlit application
+├── requirements.txt       # Python libraries for deployment
+├── churn_model.pkl        # 1. Tuned XGBoost model
+├── log_model.pkl          # 2. Baseline Logistic Regression model
+├── scaler.pkl             # 3. Fitted StandardScaler
+├── shap_explainer.pkl     # 4. SHAP explainer
+├── trained_columns.json   # 5. List of model features
+└── roc_curve_comparison.png # Saved plot for the dashboard
+Running This Project Locally
+Clone the repository:
+git clone https://github.com/RAHULBONEY/predictingchurnof-a-customer.git
+cd predictingchurnof-a-customer
+Create and activate a virtual environment:
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Mac/Linux
+Install the required libraries:
+pip install -r requirements.txt
+Run the Streamlit app:
+streamlit run app.py
